@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="dto" class="com.cjon.bank.dto.BankDTO" scope="prototype"/>
+<bean id="dbTemplate" class="com.cjon.bank.util.DBTemplate" scope="prototype"/>
+<bean id="dao" class="com.cjon.bank.dao.BankDAO"></bean>
+<bean id="service" class="com.cjon.bank.service.BankService" scope="prototype">
+<property name="template">
+<ref bean="dbTemplate"></ref>
+</property>
+<property name="dao">
+<ref bean="dao"></ref>
+</property>
+</bean>
+
+
+
+</beans>
